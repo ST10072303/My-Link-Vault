@@ -4,11 +4,13 @@ import type { LinkItem } from '../../types/Link'
 import { useEffect, useState } from 'react'
 
 interface LinkFormProps{
-  onSave: (link:LinkItem) => void;
+  //receiving onSave function from parent component
+  onSave: (link:LinkItem) => void; //save function from parent
    editingLink: LinkItem | null;
   setEditingLink: React.Dispatch<
     React.SetStateAction<LinkItem | null>
   >;
+
 }
 
 export const LinkForm = ({onSave, editingLink, setEditingLink}: LinkFormProps) => {
@@ -27,7 +29,7 @@ export const LinkForm = ({onSave, editingLink, setEditingLink}: LinkFormProps) =
 
   const handleSave = () => {
     if (!title || !url || !description) {
-      alert("Please complete all fields.");
+      alert("Please fill all fields.");
       return;
     }
 
@@ -39,7 +41,6 @@ export const LinkForm = ({onSave, editingLink, setEditingLink}: LinkFormProps) =
     };
 
     onSave(link);
-
     setTitle("");
     setUrl("");
     setDescription("");
@@ -49,7 +50,7 @@ export const LinkForm = ({onSave, editingLink, setEditingLink}: LinkFormProps) =
   return (
       <div className={styles.form}>
 
-            <h2>Add New / Update Links Details</h2>
+            <h2>Add New / Update Link Details</h2>
 
             <label>Title</label>
             <input type="text" placeholder="Enter title" value={title} onChange={(e) => setTitle(e.target.value)} />

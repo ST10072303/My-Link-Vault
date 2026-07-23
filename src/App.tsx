@@ -1,15 +1,18 @@
+import './App.css'
 import { useState } from 'react'
 import type { LinkItem } from './types/Link'
-
-import './App.css'
 import { Navbar } from './components/Navbar/Navrbar'
 import { SearchBar } from './components/SearchBar/SearchBar'
 import { LinkTable } from './components/LinkTable/LinkTable'
 import { LinkForm } from './components/LinkForm/LinkForm'
 
-function App() {
+export const App = () => {
+ 
+  const [searchTerm, setSearchTerm] = useState("");
+  //edit link State
   const [editingLink, setEditingLink] = useState<LinkItem | null>(null);
-  
+  //store all saved link in a LinkItem object array
+  //Links variable holds current data, setlinks variable changes data
   const [links, setLinks] = useState<LinkItem[]>([
     {
       id: 1,
@@ -28,17 +31,16 @@ function App() {
       title: "ILovePDF",
       url: "http://ilovepdf.com",
       description: "PDF editing site"
-    }
+    },
   ]
 );
 
-  
-  // add or update
+  // add or update link array without changing the current one
   const addLink = (link: LinkItem) => {
+    //conditional rendering
     if (editingLink) {
       const updatedLinks = links.map((currentLink) =>
-        currentLink.id === link.id ? link : currentLink
-      );
+        currentLink.id === link.id ? link : currentLink);
 
       setLinks(updatedLinks);
     } else {
@@ -47,25 +49,39 @@ function App() {
 
     setEditingLink(null);
   };
-    // delete links
+
+    // delete links unsing array filter()
   const deleteLink = (id: number) => {
     const updatedLinks = links.filter((link) => link.id !== id);
 
     setLinks(updatedLinks);
   };
 
-  // Edit
+  // Edit LinkItem function
   const editLink = (link: LinkItem) => {
     setEditingLink(link);
   };
+    // display searched inkItem using filter, incude, toLowerCase array methods
+  const filteredLinks = links.filter((link) => {
+    const search = searchTerm.toLowerCase();
+
+    return (
+      link.title.toLowerCase().includes(search) ||
+      link.url.toLowerCase().includes(search) ||
+      link.description.toLowerCase().includes(search)
+    );
+  });
 
   return (
     <>
      <Navbar />
       <main className="main">
-      <SearchBar />
-      <LinkTable links={links} onDelete={deleteLink} onEdit={editLink} />
-      <LinkForm onSave={addLink} editingLink={editingLink} setEditingLink={setEditingLink} />
+        
+      <SearchBar searchTerm={searchTerm} setSearchTerm={setSearchTerm}/>
+
+      <LinkTable links={filteredLinks} onDelete={deleteLink} onEdit={editLink} />
+      
+      <LinkForm onSave={addLink} editingLink={editingLink} setEditingLink={setEditingLink}/>
     
       </main>
       

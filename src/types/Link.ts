@@ -1,4 +1,4 @@
-
+//Every link follow this object structure
 export interface LinkItem {
 id: number;
 title: string;
