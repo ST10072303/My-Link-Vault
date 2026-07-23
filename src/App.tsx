@@ -7,7 +7,9 @@ import { LinkTable } from './components/LinkTable/LinkTable'
 import { LinkForm } from './components/LinkForm/LinkForm'
 
 export const App = () => {
- 
+  //show form state
+  const [showForm, setShowForm] = useState(false);
+  //search State
   const [searchTerm, setSearchTerm] = useState("");
   //edit link State
   const [editingLink, setEditingLink] = useState<LinkItem | null>(null);
@@ -60,6 +62,7 @@ export const App = () => {
   // Edit LinkItem function
   const editLink = (link: LinkItem) => {
     setEditingLink(link);
+    setShowForm(true);
   };
     // display searched inkItem using filter, incude, toLowerCase array methods
   const filteredLinks = links.filter((link) => {
@@ -77,12 +80,19 @@ export const App = () => {
      <Navbar />
       <main className="main">
         
-      <SearchBar searchTerm={searchTerm} setSearchTerm={setSearchTerm}/>
+      <button
+        className="addButton" onClick={() => {setEditingLink(null); setShowForm(true);}}>
+        Add New Link </button> 
 
-      <LinkTable links={filteredLinks} onDelete={deleteLink} onEdit={editLink} />
+      <SearchBar searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
       
-      <LinkForm onSave={addLink} editingLink={editingLink} setEditingLink={setEditingLink}/>
-    
+      { showForm && (
+      <LinkForm onSave={addLink} editingLink={editingLink} setEditingLink={setEditingLink}
+        closeForm={() => setShowForm(false)}/>
+     
+     )}
+
+     <LinkTable links={filteredLinks} onDelete={deleteLink} onEdit={editLink} />
       </main>
       
     </>

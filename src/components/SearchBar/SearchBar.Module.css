@@ -1,10 +1,10 @@
 .searchContainer {
-    
+display: block;
 }
 
 .searchContainer input {
-   float: center;
-  width: 50%;
+ 
+  width: 80%;
   padding: 8px;
   margin: 8px 0;
   border: 1px solid #ccc;

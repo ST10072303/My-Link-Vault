@@ -1,5 +1,5 @@
 import styles from "./SearchBar.module.css";
-import search from "../../assets/search.png"
+
 
 interface SearchBarProps {
   searchTerm: string;
@@ -12,7 +12,7 @@ export const SearchBar = ({searchTerm, setSearchTerm}: SearchBarProps) => {
   return (
     <div className={styles.searchContainer}>
       
-    <input type="text" placeholder=" type to search links..." value={searchTerm}
+    <input type="text" placeholder=" type to search..." value={searchTerm}
     onChange={(e) => setSearchTerm(e.target.value)} />
     </div>
   )

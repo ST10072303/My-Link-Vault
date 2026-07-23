@@ -6,14 +6,13 @@ import { useEffect, useState } from 'react'
 interface LinkFormProps{
   //receiving onSave function from parent component
   onSave: (link:LinkItem) => void; //save function from parent
-   editingLink: LinkItem | null;
-  setEditingLink: React.Dispatch<
-    React.SetStateAction<LinkItem | null>
+  editingLink: LinkItem | null;
+  setEditingLink: React.Dispatch<React.SetStateAction<LinkItem | null>
   >;
-
+  closeForm: () => void;
 }
 
-export const LinkForm = ({onSave, editingLink, setEditingLink}: LinkFormProps) => {
+export const LinkForm = ({onSave, editingLink, setEditingLink, closeForm}: LinkFormProps) => {
 
   const [title, setTitle] = useState("");
   const [url, setUrl] = useState("");
@@ -45,6 +44,7 @@ export const LinkForm = ({onSave, editingLink, setEditingLink}: LinkFormProps) =
     setUrl("");
     setDescription("");
     setEditingLink(null);
+    closeForm();
   };
 
   return (
@@ -60,9 +60,9 @@ export const LinkForm = ({onSave, editingLink, setEditingLink}: LinkFormProps) =
 
             <label>Description</label>
             <textarea rows={4} placeholder="Enter description" value={description} onChange={(e) => setDescription(e.target.value)}/>
-
-            <button onClick={handleSave}>Save</button>
-
+            <br />
+            <button style={{ margin: '10px'}} onClick={handleSave}>Save</button>
+            <button style={{background: 'tomato'}} type="button" onClick={() => {setEditingLink(null); closeForm();}}> Close</button>
         </div>
   )
 }

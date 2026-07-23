@@ -1,4 +1,4 @@
-import React from 'react'
+
 import styles from './LinkTable.module.css'
 import type { LinkItem } from '../../types/Link';
 
@@ -24,7 +24,7 @@ export const LinkTable = ({links, onDelete, onEdit}: LinkTableProps) => {
     {links.length === 0 ? (
         // display no links found if links is empty(conditional rendering)
         <tr>
-            <td colSpan={4} className="message"> No links found.</td>
+            <td colSpan={4} className="message"> No links to show.</td>
         </tr>
     ) : (
         //map through the array & display linkItems as table rows
