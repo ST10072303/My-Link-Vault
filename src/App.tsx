@@ -14,30 +14,7 @@ export const App = () => {
   const [editingLink, setEditingLink] = useState<LinkItem | null>(null);
   //store all saved link in a LinkItem object array
   //Links variable holds current data, setlinks variable changes data
-  const [links, setLinks] = useState<LinkItem[]>([
-    {
-      id: 1,
-      title: "YouTube",
-      url: "http://youtube.com",
-      description: "Video streaming platform",
-      category: "Favourite"
-    },
-    {
-      id: 2,
-      title: "Spotify",
-      url: "http://spotify.com",
-      description: "Music streaming platform",
-      category: "Streaming"
-    },
-    {
-      id: 3,
-      title: "ILovePDF",
-      url: "http://ilovepdf.com",
-      description: "PDF editing site",
-      category: "Reading"
-    },
-  ]
-);
+  const [links, setLinks] = useState<LinkItem[]>([]);
 // Load links from Local Storage
 useEffect(() => {
     const savedLinks = localStorage.getItem("links");

@@ -11,12 +11,8 @@ export const SearchBar = ({searchTerm, setSearchTerm}: SearchBarProps) => {
 
   return (
     <div className={styles.searchContainer}>
-  <input 
-    type="text" 
-    placeholder=" type to search..." 
-    value={searchTerm}
-    onChange={(e) => setSearchTerm(e.target.value)} 
-  />
+  <input type="text" placeholder=" type to search..."  value={searchTerm}
+   onChange={(e) => setSearchTerm(e.target.value)} />
   <h1>My Links Collection</h1>
 </div>
   )

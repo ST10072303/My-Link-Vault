@@ -20,6 +20,7 @@
   border-radius: 4px;
   box-sizing: border-box;
 }
+
 /*480px*/
 @media screen and (max-width: 480px) {
   .searchContainer {
@@ -40,7 +41,6 @@
   .searchContainer {
     gap: 7px;                 
   }
-
   .searchContainer input {
     padding: 5px;              
   }
