@@ -1,7 +1,6 @@
 import './App.css'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import type { LinkItem } from './types/Link'
-import { Navbar } from './components/Navbar/Navrbar'
 import { SearchBar } from './components/SearchBar/SearchBar'
 import { LinkTable } from './components/LinkTable/LinkTable'
 import { LinkForm } from './components/LinkForm/LinkForm'
@@ -39,6 +38,19 @@ export const App = () => {
     },
   ]
 );
+// Load links from Local Storage
+useEffect(() => {
+    const savedLinks = localStorage.getItem("links");
+
+    if (savedLinks) {
+      setLinks(JSON.parse(savedLinks));
+    }
+  }, []);
+
+  // Save links to Local Storage
+  useEffect(() => {
+    localStorage.setItem("links", JSON.stringify(links));
+  }, [links]);
 
   // add or update link array without changing the current one
   const addLink = (link: LinkItem) => {
