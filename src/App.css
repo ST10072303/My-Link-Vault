@@ -17,15 +17,47 @@ body {
 .addButton {
     float: right;
     margin: 10px;
-    padding: 10px 15px;
+    padding: 8px 10px;
     border-radius: 6px;
     background: #2563eb;
     color: white;
     cursor: pointer;
-    font-size: 16px;
-    font-weight: 600;
+    font-size: 14px;
+    font-weight: 550;
 }
 
 .addButton:hover {
     background: #1d4ed8;
+}
+/*320px*/
+@media (max-width: 320px) {
+    .main {
+        width: 95%;
+        padding: 1rem 0;
+    }
+    .addButton {
+    float: right;
+    padding: 4px 9px;
+    font-size: 14px;
+    font-weight: 400;
+    }
+}
+/*480px*/
+@media (min-width: 321px) and (max-width: 480px) {
+    .main {
+        width: 95%;
+        padding: 1.2rem 0;
+    }
+     .addButton {
+    float: right;
+    padding: 6px 10px;
+    font-size: 14px;
+    font-weight: 500;
+    }
+}
+/*768px*/
+@media (min-width: 481px) and (max-width: 768px) {
+    .main {
+        width: 90%;
+    }
 }

@@ -20,19 +20,22 @@ export const App = () => {
       id: 1,
       title: "YouTube",
       url: "http://youtube.com",
-      description: "Video streaming platform"
+      description: "Video streaming platform",
+      category: "Favourite"
     },
     {
       id: 2,
       title: "Spotify",
       url: "http://spotify.com",
-      description: "Music streaming platform"
+      description: "Music streaming platform",
+      category: "Streaming"
     },
     {
       id: 3,
       title: "ILovePDF",
       url: "http://ilovepdf.com",
-      description: "PDF editing site"
+      description: "PDF editing site",
+      category: "Reading"
     },
   ]
 );
@@ -64,28 +67,28 @@ export const App = () => {
     setEditingLink(link);
     setShowForm(true);
   };
-    // display searched inkItem using filter, incude, toLowerCase array methods
+    // filtering link array on search using filter, incude, toLowerCase array methods
   const filteredLinks = links.filter((link) => {
     const search = searchTerm.toLowerCase();
 
     return (
       link.title.toLowerCase().includes(search) ||
       link.url.toLowerCase().includes(search) ||
-      link.description.toLowerCase().includes(search)
+      link.description.toLowerCase().includes(search) ||
+      link.category.toLowerCase().includes(search)
     );
   });
 
   return (
     <>
-     <Navbar />
+    
       <main className="main">
-        
+        <SearchBar searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
+
       <button
         className="addButton" onClick={() => {setEditingLink(null); setShowForm(true);}}>
-        Add New Link </button> 
+        Add New </button> <br />
 
-      <SearchBar searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
-      
       { showForm && (
       <LinkForm onSave={addLink} editingLink={editingLink} setEditingLink={setEditingLink}
         closeForm={() => setShowForm(false)}/>

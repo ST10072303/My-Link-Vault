@@ -17,12 +17,14 @@ export const LinkForm = ({onSave, editingLink, setEditingLink, closeForm}: LinkF
   const [title, setTitle] = useState("");
   const [url, setUrl] = useState("");
   const [description, setDescription] = useState("");
+  const [category, setCategory] = useState("Favourite");
 
   useEffect(() => {
     if (editingLink) {
       setTitle(editingLink.title);
       setUrl(editingLink.url);
       setDescription(editingLink.description);
+      setCategory(editingLink.category);
     }
   }, [editingLink]);
 
@@ -37,12 +39,14 @@ export const LinkForm = ({onSave, editingLink, setEditingLink, closeForm}: LinkF
       title,
       url,
       description,
+      category
     };
 
     onSave(link);
     setTitle("");
     setUrl("");
     setDescription("");
+    setCategory("Favourite");
     setEditingLink(null);
     closeForm();
   };
@@ -57,6 +61,12 @@ export const LinkForm = ({onSave, editingLink, setEditingLink, closeForm}: LinkF
 
             <label>Link Address</label>
             <input type="text" placeholder="Enter URL" value={url} onChange={(e) => setUrl(e.target.value)}/>
+            <label htmlFor="category">Category</label>
+            <select value={category} onChange={(e) => setCategory(e.target.value)}>
+              <option value="Favourite">Favourite</option>
+              <option value="Reading">Reading</option>
+              <option value="Streaming">Streaming</option>
+            </select>
 
             <label>Description</label>
             <textarea rows={4} placeholder="Enter description" value={description} onChange={(e) => setDescription(e.target.value)}/>

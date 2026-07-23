@@ -17,6 +17,7 @@ export const LinkTable = ({links, onDelete, onEdit}: LinkTableProps) => {
                     <th>Title</th>
                     <th>Link Address</th>
                     <th>Description</th>
+                    <th>Category</th>
                     <th>Action</th>
                 </tr>
             </thead>
@@ -24,7 +25,7 @@ export const LinkTable = ({links, onDelete, onEdit}: LinkTableProps) => {
     {links.length === 0 ? (
         // display no links found if links is empty(conditional rendering)
         <tr>
-            <td colSpan={4} className="message"> No links to show.</td>
+            <td className={styles.message}> No links to show.</td>
         </tr>
     ) : (
         //map through the array & display linkItems as table rows
@@ -35,6 +36,7 @@ export const LinkTable = ({links, onDelete, onEdit}: LinkTableProps) => {
                 <td>
                     <a href={link.url} target="_blank" > {link.url} </a>
                 </td>
+                <td>{link.category}</td>
                 <td>{link.description}</td>
                 <td>
                 <button style={{background: '#2563eb', margin: '10px'}} onClick={() => onEdit(link)}>Edit </button>
