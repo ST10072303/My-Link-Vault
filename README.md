@@ -1,75 +1,87 @@
-# React + TypeScript + Vite
+## Bookmark Links Web Application
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Overview:
 
-Currently, two official plugins are available:
+My-Link-Vaulte Web Application is a React and TypeScript web application that allows users to save, organize, edit, search, and manage their favourite website links.
+The application uses the browser's Local Storage to store data, ensuring that saved bookmarks remain available even after refreshing or closing the browser.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
 
-## React Compiler
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Features:
 
-## Expanding the ESLint configuration
+ Add new bookmarks
+ View all saved bookmarks
+ Edit existing bookmarks
+ Delete unwanted bookmarks
+ Search bookmarks by title, URL, description, or category
+ Categorize bookmarks (Favourite, Reading, Streaming)
+ Automatically save data using Local Storage
+ Responsive design for mobile, tablet, and desktop devices
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## Technologies Used:
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+ React
+ TypeScript
+ Vite
+ HTML5
+ CSS Modules
+ Local Storage API
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
 
-```
+ ## Concepts Demonstrated:
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+This project demonstrates the following programming concepts:
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+ React Components
+ Props
+ useState Hook
+ useEffect Hook
+ TypeScript Interfaces
+ Arrays and Array Methods
+ Objects
+ JSON.stringify()
+ JSON.parse()
+ Browser Local Storage
+ Responsive Web Design
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
 
-```
+## Project Structure:
+
+src
+|
+|-- assets
+|- Logo
+|-- components
+│   |- Navbar
+│   |- SearchBar
+│   |- LinkForm
+│   |- LinkTable
+│   |- LinkRow
+│
+|-- types
+│   |- Link.ts
+│
+|- App.tsx
+|- main.tsx
+|- index.css
+
+
+## How to Use:
+
+1. Click **Add New Link**.
+2. Enter the Title, URL, Description, and Category.
+3. Click **Save Link**.
+4. View all saved bookmarks in the table.
+5. Use **Edit** to modify a bookmark.
+6. Use **Delete** to remove a bookmark.
+7. Use the search bar to quickly find bookmarks.
+8. Refresh the page to verify that bookmarks remain stored.
+
+## Author:
+
+Phineas Ngoasheng
+
+## Licenses:
+
+This project was developed for educational purposes.

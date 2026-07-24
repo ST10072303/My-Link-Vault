@@ -64,7 +64,7 @@ export const LinkForm = ({onSave, editingLink, setEditingLink, closeForm}: LinkF
             <label htmlFor="category">Category</label>
             <select value={category} onChange={(e) => setCategory(e.target.value)}>
               <option value="Favourite">Favourite</option>
-              <option value="Reading">Reading</option>
+              <option value="Shopping">Shopping</option>
               <option value="Streaming">Streaming</option>
             </select>
 

@@ -16,8 +16,8 @@ export const LinkTable = ({links, onDelete, onEdit}: LinkTableProps) => {
                 <tr>
                     <th>Title</th>
                     <th>Link Address</th>
-                    <th>Description</th>
                     <th>Category</th>
+                    <th>Description</th>
                     <th>Action</th>
                 </tr>
             </thead>

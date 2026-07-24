@@ -4,6 +4,7 @@ import type { LinkItem } from './types/Link'
 import { SearchBar } from './components/SearchBar/SearchBar'
 import { LinkTable } from './components/LinkTable/LinkTable'
 import { LinkForm } from './components/LinkForm/LinkForm'
+import logo from "./assets/logo.png"
 
 export const App = () => {
   //show form state
@@ -72,6 +73,7 @@ useEffect(() => {
     <>
     
       <main className="main">
+        <img style={{width: '120px'}} src={logo} alt="linkVault Logo"  />
         <SearchBar searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
 
       <button
