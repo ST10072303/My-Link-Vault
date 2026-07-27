@@ -16,7 +16,7 @@ body {
 }
 .addButton {
     float: right;
-    margin: 10px;
+    margin-right: 50px;
     padding: 8px 10px;
     border-radius: 6px;
     background: #2563eb;
@@ -40,6 +40,7 @@ body {
     padding: 4px 9px;
     font-size: 14px;
     font-weight: 400;
+    margin-top: 10px;
     }
 }
 /*480px*/
@@ -53,11 +54,19 @@ body {
     padding: 6px 10px;
     font-size: 14px;
     font-weight: 500;
+    margin-top: 10px;
     }
 }
 /*768px*/
 @media (min-width: 481px) and (max-width: 768px) {
     .main {
         width: 90%;
+    }
+    .addButton {
+    float: right;
+    padding: 6px 10px;
+    font-size: 14px;
+    font-weight: 500;
+    margin-top: 10px;
     }
 }

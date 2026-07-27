@@ -4,7 +4,6 @@ import type { LinkItem } from './types/Link'
 import { SearchBar } from './components/SearchBar/SearchBar'
 import { LinkTable } from './components/LinkTable/LinkTable'
 import { LinkForm } from './components/LinkForm/LinkForm'
-import logo from "./assets/logo.png"
 
 export const App = () => {
   //show form state
@@ -19,7 +18,7 @@ export const App = () => {
 // Load links from Local Storage
 useEffect(() => {
     const savedLinks = localStorage.getItem("links");
-
+  // show saved links from local storage
     if (savedLinks) {
       setLinks(JSON.parse(savedLinks));
     }
@@ -73,18 +72,18 @@ useEffect(() => {
     <>
     
       <main className="main">
-        <img style={{width: '120px'}} src={logo} alt="linkVault Logo"  />
-        <SearchBar searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
 
-      <button
+      <SearchBar searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
+         <button
         className="addButton" onClick={() => {setEditingLink(null); setShowForm(true);}}>
-        Add New </button> <br />
+        Add Link </button> <br /><br />
 
       { showForm && (
       <LinkForm onSave={addLink} editingLink={editingLink} setEditingLink={setEditingLink}
         closeForm={() => setShowForm(false)}/>
      
      )}
+        <br />
 
      <LinkTable links={filteredLinks} onDelete={deleteLink} onEdit={editLink} />
       </main>
